@@ -1,0 +1,17 @@
+.filterControls {
+   display: flex;
+   flex-wrap: wrap;
+}
+.agg_control {
+  flex: 1;
+}
+.search_results > ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  &> li {
+    flex: 1;
+    margin: 1em;
+    padding:1em;
+  }
+}
