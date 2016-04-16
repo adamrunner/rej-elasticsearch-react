@@ -10,7 +10,13 @@ let loadFilters = function(){
 	return client.search({
 		"index": "development-categories-products",
 		"size": 0,
-		"body":{"aggs":{"class":{"terms":{"field":"product_class"}},"supercat":{"terms":{"field":"supercat"}},"category":{"terms":{"field":"category"}},"product_type":{"terms":{"field":"product_type"}}}}
+		"body":{"aggs":{
+			"class":{"terms":{"field":"product_class"}},
+			"supercat":{"terms":{"field":"supercat"}},
+			"category":{"terms":{"field":"category"}},
+			"product_type":{"terms":{"field":"product_type"}},
+			"always_free_to_ship":{"terms":{"field":"always_free_to_ship"}}
+		}}
 	})
 }
 let search = function(matchQuery){
@@ -18,7 +24,14 @@ let search = function(matchQuery){
 	return client.search({
 		"index": "development-categories-products",
 		"size": per_page,
-		"body":{"query":{"match": matchQuery},"aggs":{"class":{"terms":{"field":"product_class"}},"supercat":{"terms":{"field":"supercat"}},"category":{"terms":{"field":"category"}},"product_type":{"terms":{"field":"product_type"}}}}
+		"body":{"query":{"match": matchQuery},
+		"aggs":{
+			"class":{"terms":{"field":"product_class"}},
+			"supercat":{"terms":{"field":"supercat"}},
+			"category":{"terms":{"field":"category"}},
+			"product_type":{"terms":{"field":"product_type"}},
+			"always_free_to_ship":{"terms":{"field":"always_free_to_ship"}}
+		}}
 	})
 }
 const App = React.createClass({
