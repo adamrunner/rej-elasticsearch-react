@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import elasticsearch from 'elasticsearch'
 
 let client = new elasticsearch.Client({
-	host: ['https://251a506566f18dc3000.qbox.io','https://251a506566f18dc3001.qbox.io','https://251a506566f18dc3002.qbox.io'],
+	host: ['https://f505e785.qb0x.com:31553'],
 	log: 'trace'
 })
 let loadFilters = function(){
